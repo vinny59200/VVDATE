@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { DatePipe } from '@angular/common';
 
 @Component({
   selector: 'app-date',
@@ -7,14 +8,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DateComponent implements OnInit {
 
-  mydate:string="2020-01-03";
+  mydate: string = "2019-01-03";
 
-  constructor() { }
+  constructor(private datePipe: DatePipe) { }
 
   ngOnInit(): void {
   }
 
-  isLater(dateString1:string, dateString2:string) {
-    return dateString1 > dateString2
+  isLater() {
+    let today = new Date().toLocaleDateString();
+    return this.mydate > this.datePipe.transform(today,"yyyy-MM-dd");
   }
 }

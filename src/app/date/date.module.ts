@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { DateComponent } from './date/date.component';
+import {DatePipe} from '@angular/common';
 
 
 
@@ -10,5 +11,6 @@ import { DateComponent } from './date/date.component';
     CommonModule
   ],
   exports: [DateComponent],
+  providers: [DatePipe],
 })
 export class DateModule { }
